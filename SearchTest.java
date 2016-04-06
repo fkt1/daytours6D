@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -47,6 +48,19 @@ public class SearchTest {
 
         // Verify that we called getData with the correct string input
         verify(mockDatabase).getData("SELECT * FROM Tour"); // s is missing from "Tours" string
+    }
+    
+    @Test
+    public void testCreateResults_GivesCorrectSearchValues() {
+        
+        search.createResults("Austurland");
+    
+        ArrayList<Tours> result = search.getResults("SELECT * FROM Tours");
+        
+        for (int i = 0; i < result.size(); i++) {
+            Tours res = result.get(i);
+            assertEquals(res.getArea(), "Austurland");
+        }   
     }
 
 }
