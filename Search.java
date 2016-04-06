@@ -16,15 +16,15 @@ public class Search
     
     private ArrayList<Tours> tour = new ArrayList<Tours>();
 
-    private DummySQLJDBC database;
+    private SQLiteJDBC database;
 
-    public Search(DummySQLJDBC database) {
+    public Search(SQLiteJDBC database) {
         this.database = database;
     }
 
     public ArrayList<Tours> getResults(String searchString) {
 
-        database.getData(searhString);
+        database.getData(searchString);
 
     	return tour; 
     }
@@ -32,8 +32,7 @@ public class Search
     public void createResults(String values) {
         ArrayList<Tours> results = new ArrayList<Tours>();
 
-            //ResultSet
-            String db = database.getData("SELECT * FROM Tours");
+            ResultSet db = database.getData("SELECT * FROM users");
             try {
                 while (db.next()) {
                     Tours data = new Tours();

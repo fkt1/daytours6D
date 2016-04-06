@@ -2,13 +2,13 @@
 public class Tours {
 	private int id;
 	private double duration;
-	private int type;
-	private int difficulty;
-	private int area;
+	private String type;
+	private String difficulty;
+	private String area;
 	private int price;
 	private int seatsTotal;
 	private int seatsBooked;
-	private int language;
+	private String[] language;
 	private boolean pickup;
 	private boolean handicap;
 	private int date;
@@ -17,7 +17,7 @@ public class Tours {
 		return price;
 	}
 	
-	public int getType() {
+	public String getType() {
 		return type;
 	}
 	
@@ -25,7 +25,7 @@ public class Tours {
 		return duration;
 	}
 	
-	public int getArea() {
+	public String getArea() {
 		return area;
 	}
 	
@@ -37,11 +37,11 @@ public class Tours {
 		return handicap;
 	}
 	
-	public int getLanguage() {
+	public String[] getLanguage() {
 		return language;
 	}
 	
-	public int getDifficulty() {
+	public String getDifficulty() {
 		return difficulty;
 	}
 	
@@ -61,7 +61,7 @@ public class Tours {
 		price = n;
 	}
 	
-	public void setType(int n) {
+	public void setType(String n) {
 		type = n;
 	}
 	
@@ -69,7 +69,7 @@ public class Tours {
 		duration = n;
 	}
 	
-	public void setArea(int n) {
+	public void setArea(String n) {
 		area = n;
 	}
 	
@@ -81,11 +81,11 @@ public class Tours {
 		handicap = isHandy;
 	}
 	
-	public void setLanguage(int lang) {
+	public void setLanguage(String[] lang) {
 		language = lang;
 	}
 	
-	public void setDifficulty(int diff) {
+	public void setDifficulty(String diff) {
 		difficulty = diff;
 	}
 	

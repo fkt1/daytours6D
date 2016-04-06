@@ -8,7 +8,7 @@ import java.sql.ResultSet;
 
 public class SQLiteJDBC {
 	
-    public ResultSet getData() {
+    public ResultSet getData(String searchString) {
     //public static void main(String [] args ) {
         
         ResultSet rs; 
@@ -25,7 +25,7 @@ public class SQLiteJDBC {
             Connection con = DriverManager.getConnection(host, username, password);
             Statement stmt = con.createStatement();
             
-            String SQL = "SELECT * FROM users";
+            String SQL = searchString;
             
             rs = stmt.executeQuery( SQL );
             /*
