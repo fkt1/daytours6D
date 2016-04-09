@@ -22,8 +22,17 @@ public class Search
         this.database = database;
     }
 
+    public ArrayList<Tours> getResults(String dur, String type, String diff, 
+            String area, int price, String lang, boolean pUp, boolean hCap, int date){ 
+        
+    /*    return tour;
+    }   
+        
+          
     public ArrayList<Tours> getResults(String searchString) {
-
+    */        
+        String searchString = "";
+        
         database.getData(searchString);
 
     	return tour; 
@@ -48,7 +57,7 @@ public class Search
                     System.out.println( data.getArea() + " " + data.getPrice() + " " + Arrays.toString(data.getLanguage()) );
                 }
                 System.out.println("Thetta tokst");
-            } catch (SQLException ex) {
+            } catch (Exception ex) {
                 Logger.getLogger(Search.class.getName()).log(Level.SEVERE, null, ex);
             }
     }
