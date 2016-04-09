@@ -33,7 +33,7 @@ public class SearchTest {
         // Make database return dummy data for the input given
         when(mockDatabase.getData("SELECT * FROM Tours")).thenReturn("DATA");
 
-        search.getResults("bla"); // Method that will call the mocked object
+        search.getResults("SELECT * FROM Tours"); // Method that will call the mocked object
 
         // Verify that we called getData with the correct string input
         verify(mockDatabase).getData("SELECT * FROM Tours");

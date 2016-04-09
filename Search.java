@@ -20,9 +20,15 @@ public class Search
         this.database = database;
     }
 
+    public Search() {
+
+        this.database = new SQLiteJDBC();
+
+    }
+
     public ArrayList<Tours> getResults(double duration, String type, String difficulty,
             String area, String language, String date){
-        
+
     /*    return tour;
     }   
         
@@ -39,7 +45,7 @@ public class Search
     public void createResults(String values) {
         ArrayList<Tours> results = new ArrayList<Tours>();
 
-            ResultSet db = database.getData("SELECT * FROM users");
+            ResultSet db = database.getData("SELECT * FROM Tour");
             try {
                 while (db.next()) {
                     Tours data = new Tours();
