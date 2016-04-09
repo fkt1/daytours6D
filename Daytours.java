@@ -167,10 +167,11 @@ public class Daytours extends javax.swing.JFrame {
         ArrayList<Tours> results = new ArrayList<Tours>();
         Search newSearch = new Search();
         
-        //duration, String type, String difficulty, 
-        //    String area, String language, int date){ 
-        results = newSearch.getResults("" , "sightseeing", "", "", "", 0);
-        
+        // double duration, String type, String difficulty, String area, String language, String date){
+        results = newSearch.getResults(5.5 , "", "", "", "", "");
+        results = newSearch.getResults(3.0 , "sightseeing", "", "", "", "");
+        results = newSearch.getResults(0.0 , "", "", "", "", "31.11.2016");
+        results = newSearch.getResults(0.0 , "", "hard", "", "", "");
         
         
         /* Create and display the form */

@@ -15,9 +15,12 @@ public class Search
     private ArrayList<Tours> tour = new ArrayList<Tours>();
 
     private SQLiteJDBC database;
+    
+    private Tours data = new Tours();
 
     public Search(SQLiteJDBC database) {
         this.database = database;
+        
     }
 
     public Search() {
@@ -28,16 +31,46 @@ public class Search
 
     public ArrayList<Tours> getResults(double duration, String type, String difficulty,
             String area, String language, String date){
-
-    /*    return tour;
-    }   
-        
-          
-    public ArrayList<Tours> getResults(String searchString) {
-    */        
+                
         String searchString = createString(duration, type, difficulty, area, language, date);
+        System.out.println(searchString);
         
-        database.getData(searchString);
+        ArrayList<Tours> results = new ArrayList<Tours>();
+
+        ResultSet db = database.getData(searchString);
+        try {
+            while (db.next()) {
+                
+
+                data.setId(db.getInt("id"));
+                data.setDuration(db.getDouble("duration"));
+                data.setType(db.getString("type"));
+                data.setDifficulty(db.getString("difficulty"));
+                data.setArea(db.getString("area"));
+                data.setSeatsTotal(db.getInt("seats_total"));
+                data.setSeatsAvailable(db.getInt("seats_available"));
+                data.setPickup(db.getBoolean("pickup"));
+                data.setHandicap(db.getBoolean("handicap"));
+                data.setDate(db.getString("date"));
+                data.setPrice(db.getInt("price"));
+
+                Array lang = db.getArray("language");
+                //String [] language1 = (String[])lang.getArray();
+                //String[] language2 = new String[language1.length];
+                //for (int i = 0; i < language1.length; i++) {
+                //    language2[i] = language[language1[i]];
+                //}
+                data.setLanguage((String[])lang.getArray());
+
+                tour.add(data);
+
+                System.out.println( data.getArea() + " " + data.getPrice() + " " + Arrays.toString(data.getLanguage()) );
+            }
+            System.out.println("Thetta tokst");
+        } catch (Exception ex) {
+            System.out.println("engar niðurstöður");
+            Logger.getLogger(Search.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     	return tour; 
     }
@@ -81,8 +114,8 @@ public class Search
     }
     public static String createString(double duration, String type, String difficulty,
             String area, String language, String date){
-        String res = "SELECT * FROM TOURS;";
-        String res2 = "SELECT * FROM TOURS WHERE";
+        String res = "SELECT * FROM TOUR;";
+        String res2 = "SELECT * FROM TOUR WHERE";
         // Array for strings for dur, type, diff, lang, area, pUp, hCap, date;
         ArrayList<String> parts = new ArrayList<>();
         
@@ -90,26 +123,27 @@ public class Search
         	parts.add(" duration = " + duration);
         }
         if (type.compareTo(("")) != 0) {
-        	parts.add(" type = " + type);
+        	parts.add(" type = " + "'" + type + "'");
         }
         if (difficulty.compareTo(("")) != 0) {
-        	parts.add(" difficulty = " + difficulty);
+        	parts.add(" difficulty = " + "'" + difficulty + "'");
         }
         if (area.compareTo(("")) != 0) {
-        	parts.add(" duration = " + area);
+        	parts.add(" duration = " + "'" + area + "'");
         }
         if (language.compareTo(("")) != 0) {
-        	parts.add(" language = " + language);
+        	parts.add(" language = " + "'" + language + "'");
         }
         if (date.compareTo(("")) != 0) {
-        	parts.add(" date = " + date);
+        	parts.add(" date = " + "'" + date + "'");
         }
         if (parts.isEmpty()) return res;
         else {
-        	for (String condition : parts) {
+            for (String condition : parts) {
                 res2 += condition + " AND";
-        	}
-        	return res2 + ";";
+            }
+            res2 = res2.substring(0, res2.length() - 4);
+            return res2 + ";";
         }
     }
 
