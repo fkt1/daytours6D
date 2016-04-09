@@ -46,18 +46,25 @@ public class Search
                 while (db.next()) {
                     Tours data = new Tours();
 
-                    data.setId(db.getInt("Id"));
-                    data.setDuration(db.getDouble("Duration"));
-                    data.setType(type[db.getInt("Type")]);
-                    data.setDifficulty(difficulty[db.getInt("Difficulty")]);
-                    data.setArea(area[db.getInt("Area")]);
-                    data.setSeatsTotal(db.getInt("SeatsTotal"));
-                    data.setSeatsAvailable(db.getInt("SeatsAvailable"));
+                    data.setId(db.getInt("id"));
+                    data.setDuration(db.getDouble("duration"));
+                    data.setType(type[db.getInt("type")]);
+                    data.setDifficulty(difficulty[db.getInt("difficulty")]);
+                    data.setArea(area[db.getInt("area")]);
+                    data.setSeatsTotal(db.getInt("seats_total"));
+                    data.setSeatsAvailable(db.getInt("seats_available"));
+                    data.setPickup(db.getBoolean("pickup"));
+                    data.setHandicap(db.getBoolean("handicap"));
+                    data.setDate(db.getString("date"));
+                    data.setPrice(db.getInt("price"));
+                    
                     Array lang = db.getArray("language");
+                    int[] language1 = (int[])lang.getArray();
+                    String[] language2 = new String[language1.length];
+                    for (int i = 0; i < language1.length; i++) {
+                        language2[i] = language[language1[i]];
+                    }
                     data.setLanguage((String[])lang.getArray());
-                    data.setPickup(db.getBoolean("Pickup"));
-                    data.setHandicap(db.getBoolean("Handicap"));
-                    data.setDate(db.getString("Date"));
                     
                     tour.add(data);
                         
@@ -73,7 +80,7 @@ public class Search
         String res = "SELECT * FROM TOURS;";
         String res2 = "SELECT * FROM TOURS WHERE";
         // Array for strings for dur, type, diff, lang, area, pUp, hCap, date;
-        String[] parts = new String[6];//{durS, typeS, diffS, langS, areaS, pUpS, hCapS, dateS};
+        String[] parts = new String[6];
         boolean condition = false;
         int conditions = 0;
         
