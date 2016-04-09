@@ -22,8 +22,8 @@ public class Search
         this.database = database;
     }
 
-    public ArrayList<Tours> getResults(String dur, String type, String diff, 
-            String area, int price, String lang, boolean pUp, boolean hCap, int date){ 
+    public ArrayList<Tours> getResults(String duration, String type, String difficulty, 
+            String area, String language, int date){ 
         
     /*    return tour;
     }   
@@ -31,7 +31,7 @@ public class Search
           
     public ArrayList<Tours> getResults(String searchString) {
     */        
-        String searchString = "";
+        String searchString = createString(duration, type, difficulty, area, language, date);
         
         database.getData(searchString);
 
@@ -60,6 +60,60 @@ public class Search
             } catch (Exception ex) {
                 Logger.getLogger(Search.class.getName()).log(Level.SEVERE, null, ex);
             }
+    }
+    public static String createString(String duration, String type, String difficulty, 
+            String area, String language, int date){ 
+        String res = "SELECT * FROM TOURS;";
+        String res2 = "SELECT * FROM TOURS WHERE";
+        // Array for strings for dur, type, diff, lang, area, pUp, hCap, date;
+        String[] parts = new String[6];//{durS, typeS, diffS, langS, areaS, pUpS, hCapS, dateS};
+        boolean condition = false;
+        int conditions = 0;
+        
+        if (duration != "") {
+        	parts[0] = " duration = "+duration;
+        	condition = true;
+        	conditions++;
+        }
+        if (type != "") {
+        	parts[1] = " type = "+type;
+        	condition = true;
+        	conditions++;
+        }
+        if (difficulty != "") {
+        	parts[2] = " difficulty = "+difficulty;
+        	condition = true;
+        	conditions++;
+        }
+        if (area != "") {
+        	parts[3] = " duration = "+area;
+        	condition = true;
+        	conditions++;
+        }
+        if (language != "") {
+        	parts[4] = " language = "+language;
+        	condition = true;
+        	conditions++;
+        }
+        if (date != 0) {
+        	parts[5] = " date = "+date;
+        	condition = true;
+        	conditions++;
+        }
+        if (condition == false) return res;
+        else {
+        	for (int i = 0; i<parts.length; i++) {
+        		if (parts[i] != null && conditions > 1) {
+        			res2 += parts[i] +" AND";
+        			conditions--;
+        		}
+        		else if (parts[i] != null) {
+        			res2 += parts[i];
+        			conditions--;
+        		}
+        	}
+        	return res2+";";
+        }
     }
 
 }
