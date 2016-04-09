@@ -1,7 +1,7 @@
 -- Table: "Tour"
 
 -- DROP TABLE "Tour";
-
+//daytours_database
 CREATE TABLE "Tour"
 (
   id integer NOT NULL,
