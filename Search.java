@@ -9,10 +9,8 @@ import java.util.logging.Logger;
  */
 public class Search
 {
-    private String[] type = {"adventure", "city walk", "horseriding", "hiking",  "sightseeing"};
-    private String[] difficulty = {"easy", "medium", "hard"};
-    private String[] area = {"Capital region", "east", "north", "south", "west"};
-    private String[] language = {"danish", "english", "german", "icelandic", "spanish"};
+
+    //private String[] language = {"danish", "english", "german", "icelandic", "spanish"};
     
     private ArrayList<Tours> tour = new ArrayList<Tours>();
 
@@ -22,8 +20,8 @@ public class Search
         this.database = database;
     }
 
-    public ArrayList<Tours> getResults(String duration, String type, String difficulty, 
-            String area, String language, int date){ 
+    public ArrayList<Tours> getResults(double duration, String type, String difficulty,
+            String area, String language, String date){
         
     /*    return tour;
     }   
@@ -48,9 +46,9 @@ public class Search
 
                     data.setId(db.getInt("id"));
                     data.setDuration(db.getDouble("duration"));
-                    data.setType(type[db.getInt("type")]);
-                    data.setDifficulty(difficulty[db.getInt("difficulty")]);
-                    data.setArea(area[db.getInt("area")]);
+                    data.setType(db.getString("type"));
+                    data.setDifficulty(db.getString("difficulty"));
+                    data.setArea(db.getString("area"));
                     data.setSeatsTotal(db.getInt("seats_total"));
                     data.setSeatsAvailable(db.getInt("seats_available"));
                     data.setPickup(db.getBoolean("pickup"));
@@ -59,11 +57,11 @@ public class Search
                     data.setPrice(db.getInt("price"));
                     
                     Array lang = db.getArray("language");
-                    int[] language1 = (int[])lang.getArray();
-                    String[] language2 = new String[language1.length];
-                    for (int i = 0; i < language1.length; i++) {
-                        language2[i] = language[language1[i]];
-                    }
+                    //String [] language1 = (String[])lang.getArray();
+                    //String[] language2 = new String[language1.length];
+                    //for (int i = 0; i < language1.length; i++) {
+                    //    language2[i] = language[language1[i]];
+                    //}
                     data.setLanguage((String[])lang.getArray());
                     
                     tour.add(data);
@@ -75,58 +73,37 @@ public class Search
                 Logger.getLogger(Search.class.getName()).log(Level.SEVERE, null, ex);
             }
     }
-    public static String createString(String duration, String type, String difficulty, 
-            String area, String language, int date){ 
+    public static String createString(double duration, String type, String difficulty,
+            String area, String language, String date){
         String res = "SELECT * FROM TOURS;";
         String res2 = "SELECT * FROM TOURS WHERE";
         // Array for strings for dur, type, diff, lang, area, pUp, hCap, date;
-        String[] parts = new String[6];
-        boolean condition = false;
-        int conditions = 0;
+        ArrayList<String> parts = new ArrayList<>();
         
-        if (duration != "") {
-        	parts[0] = " duration = "+duration;
-        	condition = true;
-        	conditions++;
+        if (duration != 0.0) {
+        	parts.add(" duration = " + duration);
         }
-        if (type != "") {
-        	parts[1] = " type = "+type;
-        	condition = true;
-        	conditions++;
+        if (type.compareTo(("")) != 0) {
+        	parts.add(" type = " + type);
         }
-        if (difficulty != "") {
-        	parts[2] = " difficulty = "+difficulty;
-        	condition = true;
-        	conditions++;
+        if (difficulty.compareTo(("")) != 0) {
+        	parts.add(" difficulty = " + difficulty);
         }
-        if (area != "") {
-        	parts[3] = " duration = "+area;
-        	condition = true;
-        	conditions++;
+        if (area.compareTo(("")) != 0) {
+        	parts.add(" duration = " + area);
         }
-        if (language != "") {
-        	parts[4] = " language = "+language;
-        	condition = true;
-        	conditions++;
+        if (language.compareTo(("")) != 0) {
+        	parts.add(" language = " + language);
         }
-        if (date != 0) {
-        	parts[5] = " date = "+date;
-        	condition = true;
-        	conditions++;
+        if (date.compareTo(("")) != 0) {
+        	parts.add(" date = " + date);
         }
-        if (condition == false) return res;
+        if (parts.isEmpty()) return res;
         else {
-        	for (int i = 0; i<parts.length; i++) {
-        		if (parts[i] != null && conditions > 1) {
-        			res2 += parts[i] +" AND";
-        			conditions--;
-        		}
-        		else if (parts[i] != null) {
-        			res2 += parts[i];
-        			conditions--;
-        		}
+        	for (String condition : parts) {
+                res2 += condition + " AND";
         	}
-        	return res2+";";
+        	return res2 + ";";
         }
     }
 
