@@ -11,7 +11,7 @@ public class Tours {
 	private String[] language;
 	private boolean pickup;
 	private boolean handicap;
-	private int date;
+	private String date; // form of date = DD.MM.YYYY
 	
 	public int getPrice() {
 		return price;
