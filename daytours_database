@@ -1,0 +1,25 @@
+-- Table: "Tour"
+
+-- DROP TABLE "Tour";
+
+CREATE TABLE "Tour"
+(
+  id integer NOT NULL,
+  duration double precision,
+  type integer,
+  difficulty integer,
+  area integer,
+  price integer,
+  seats_total integer,
+  seats_available integer,
+  pickup boolean,
+  handicap boolean,
+  date character(1),
+  language integer[],
+  CONSTRAINT "Tour_pkey" PRIMARY KEY (id)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE "Tour"
+  OWNER TO postgres;
