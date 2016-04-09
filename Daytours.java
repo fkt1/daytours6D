@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import src.Search;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -160,7 +163,12 @@ public class Daytours extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-
+        
+        ArrayList<Tours> results = new ArrayList<Tours>();
+        Search newSearch = new src.Search();
+        
+        results = getResults();
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
