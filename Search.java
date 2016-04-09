@@ -22,6 +22,12 @@ public class Search
         this.database = database;
     }
 
+    public Search() {
+       
+        this.database = new SQLiteJDBC();
+        
+    }
+
     public ArrayList<Tours> getResults(String duration, String type, String difficulty, 
             String area, String language, int date){ 
         
@@ -41,7 +47,7 @@ public class Search
     public void createResults(String values) {
         ArrayList<Tours> results = new ArrayList<Tours>();
 
-            ResultSet db = database.getData("SELECT * FROM users");
+            ResultSet db = database.getData("SELECT * FROM Tour");
             try {
                 while (db.next()) {
                     Tours data = new Tours();
@@ -77,8 +83,8 @@ public class Search
     }
     public static String createString(String duration, String type, String difficulty, 
             String area, String language, int date){ 
-        String res = "SELECT * FROM TOURS;";
-        String res2 = "SELECT * FROM TOURS WHERE";
+        String res = "SELECT * FROM TOUR;";
+        String res2 = "SELECT * FROM TOUR WHERE";
         // Array for strings for dur, type, diff, lang, area, pUp, hCap, date;
         String[] parts = new String[6];
         boolean condition = false;

@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-import src.Search;
+//import src.Search;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -165,14 +165,18 @@ public class Daytours extends javax.swing.JFrame {
         //</editor-fold>
         
         ArrayList<Tours> results = new ArrayList<Tours>();
-        Search newSearch = new src.Search();
+        Search newSearch = new Search();
         
-        results = getResults();
+        //duration, String type, String difficulty, 
+        //    String area, String language, int date){ 
+        results = newSearch.getResults("" , "sightseeing", "", "", "", 0);
+        
+        
         
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Daytours().setVisible(true);
+                new Daytours().setVisible(false);
             }
         });
     }
