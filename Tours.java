@@ -7,7 +7,7 @@ public class Tours {
 	private String area;
 	private int price;
 	private int seatsTotal;
-	private int seatsBooked;
+	private int seatsAvailable;
 	private String[] language;
 	private boolean pickup;
 	private boolean handicap;
@@ -49,13 +49,16 @@ public class Tours {
 		return id;
 	}
 	
-	public int getSeatsT() {
+	public int getSeatsTotal() {
 		return seatsTotal;
 	}
 	
-	public int getSeatsB() {
-		return seatsBooked;
+	public int getSeatsAvailable() {
+		return seatsAvailable;
 	}
+        public String getDate() {
+            return date;
+        }
 	
 	public void setPrice(int n) {
 		price = n;
@@ -65,7 +68,7 @@ public class Tours {
 		type = n;
 	}
 	
-	public void setDuration(int n) {
+	public void setDuration(double n) {
 		duration = n;
 	}
 	
@@ -93,11 +96,14 @@ public class Tours {
 		id = n;
 	}
 	
-	public void setSeatsB(int n) {
-		seatsBooked = n;
+	public void setSeatsAvailable(int n) {
+		seatsAvailable = n;
 	}
 	
-	public void setSeatsT(int n) {
+	public void setSeatsTotal(int n) {
 		seatsTotal = n;
 	}
+        public void setDate(String n) {
+            date = n;
+        }
 }

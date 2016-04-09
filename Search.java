@@ -46,11 +46,18 @@ public class Search
                 while (db.next()) {
                     Tours data = new Tours();
 
-                    data.setArea(db.getString("name"));
-                    data.setPrice(db.getInt("username"));
+                    data.setId(db.getInt("Id"));
+                    data.setDuration(db.getDouble("Duration"));
+                    data.setType(type[db.getInt("Type")]);
+                    data.setDifficulty(difficulty[db.getInt("Difficulty")]);
+                    data.setArea(area[db.getInt("Area")]);
+                    data.setSeatsTotal(db.getInt("SeatsTotal"));
+                    data.setSeatsAvailable(db.getInt("SeatsAvailable"));
                     Array lang = db.getArray("language");
                     data.setLanguage((String[])lang.getArray());
-                    //tour.setLanguage(data.getArray("language"));
+                    data.setPickup(db.getBoolean("Pickup"));
+                    data.setHandicap(db.getBoolean("Handicap"));
+                    data.setDate(db.getString("Date"));
                     
                     tour.add(data);
                         
