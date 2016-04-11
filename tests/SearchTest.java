@@ -1,3 +1,8 @@
+package tests;
+
+import daytours.Model.SQLiteJDBC;
+import daytours.Model.Tours;
+import daytours.Controller.Search;
 import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;

@@ -1,3 +1,7 @@
+package daytours.View;
+
+import daytours.Model.Tours;
+import daytours.Controller.Search;
 import java.util.ArrayList;
 import java.util.Arrays;
 import javax.swing.JTable;
@@ -15,15 +19,13 @@ import javax.swing.table.DefaultTableModel;
  * @author Eiríkur Atli Briem, Háskóli Íslands, eab12@hi.is
  */
 public class Daytours extends javax.swing.JFrame {
-    
-    
+   
     ArrayList<Tours> results = new ArrayList<Tours>();
     static ArrayList<Tours> results2 = new ArrayList<Tours>();
     Search newSearch = new Search();
     static Search newSearch2 = new Search();
     DefaultTableModel tableModel;
     //DefaultTableModel tableModel = new javax.swing.table.DefaultTableModel();
-    
     
     /**
      * Creates new form Daytours
@@ -62,6 +64,16 @@ public class Daytours extends javax.swing.JFrame {
         jDuration = new javax.swing.JComboBox();
         jDateMonth = new javax.swing.JComboBox();
         jDateYear = new javax.swing.JComboBox();
+        jMinPriceLabel = new javax.swing.JLabel();
+        jMinPrice = new javax.swing.JSpinner();
+        jMaxPriceLabel = new javax.swing.JLabel();
+        jMaxPrice = new javax.swing.JSpinner();
+        jLanguage = new javax.swing.JComboBox();
+        jLanguageLabel = new javax.swing.JLabel();
+        jPickup = new javax.swing.JCheckBox();
+        jHandicap = new javax.swing.JCheckBox();
+        jAvailableLabel = new javax.swing.JLabel();
+        jAvailable = new javax.swing.JSpinner();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -149,6 +161,32 @@ public class Daytours extends javax.swing.JFrame {
 
         jDateYear.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "0", "2016", "2017" }));
 
+        jMinPriceLabel.setText("Min Price");
+
+        jMinPrice.setModel(new javax.swing.SpinnerNumberModel(0, 0, 100000, 5000));
+        jMinPrice.setOpaque(false);
+
+        jMaxPriceLabel.setText("Max Price");
+
+        jMaxPrice.setModel(new javax.swing.SpinnerNumberModel(0, 0, 100000, 5000));
+
+        jLanguage.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ekkert valið", "danish", "english", "german", "icelandic", "spanish" }));
+
+        jLanguageLabel.setText("Language");
+
+        jPickup.setText("Hotel Pickup");
+        jPickup.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPickupActionPerformed(evt);
+            }
+        });
+
+        jHandicap.setText("Disabled friendly");
+
+        jAvailableLabel.setText("Available Seats");
+
+        jAvailable.setModel(new javax.swing.SpinnerNumberModel(0, 0, 100, 1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -159,34 +197,52 @@ public class Daytours extends javax.swing.JFrame {
                     .addComponent(jScrollPane2)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTegund, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTegundLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jAreaLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jDifficulty, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jDifficultyLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jDurationLabel)
-                            .addComponent(jDuration, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jDateLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jDateDay, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jDateMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jDateYear, 0, 122, Short.MAX_VALUE)
-                                .addGap(296, 296, 296)))
-                        .addComponent(jSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jDateLabel)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jTegund, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jTegundLabel))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jAreaLabel))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jDifficulty, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jDifficultyLabel)
+                                        .addComponent(jAvailableLabel))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jDuration, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jDurationLabel))
+                                    .addGap(18, 18, 18)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jMinPriceLabel)
+                                        .addComponent(jMinPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jMaxPriceLabel)
+                                        .addComponent(jMaxPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLanguage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLanguageLabel, javax.swing.GroupLayout.Alignment.LEADING)))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(jDateDay, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jDateMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jDateYear, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(30, 30, 30)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jAvailable, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jHandicap)
+                                            .addGap(51, 51, 51)
+                                            .addComponent(jPickup))))))
+                        .addGap(0, 38, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -203,27 +259,39 @@ public class Daytours extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jDifficultyLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jDifficulty, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jDurationLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jDuration, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(60, 60, 60)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jDateLabel)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jDurationLabel)
+                            .addComponent(jMinPriceLabel)
+                            .addComponent(jDifficultyLabel))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jDateDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jDateMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jDateYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(41, 41, 41)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 543, Short.MAX_VALUE))
+                            .addComponent(jDuration, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jMinPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jDifficulty, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(jMaxPriceLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jMaxPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLanguageLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLanguage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(60, 60, 60)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jDateLabel)
+                    .addComponent(jAvailableLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jDateDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jDateMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jDateYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jHandicap)
+                    .addComponent(jPickup)
+                    .addComponent(jAvailable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addComponent(jSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(53, 53, 53)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -258,18 +326,33 @@ public class Daytours extends javax.swing.JFrame {
                 String.valueOf(jDateMonth.getSelectedItem())+"."+
                 String.valueOf(jDateYear.getSelectedItem());
         
-                
-        // double duration, String type, String difficulty, String area, String language, String date
-        results = newSearch.getResults(duration, type, difficulty, area, "", date);
+        String language;
+        if (jLanguage.getSelectedIndex() == 0) language = "";
+        else language = String.valueOf(jLanguage.getSelectedItem());
         
-        int counter = 1;
+        int minPrice = Integer.parseInt(String.valueOf(jMinPrice.getValue()));
+        
+        int maxPrice = Integer.parseInt(String.valueOf(jMaxPrice.getValue()));
+        
+        boolean handicap = jHandicap.isSelected();
+         
+        boolean pickup = jPickup.isSelected();
+        
+        int availableSeats = Integer.parseInt(String.valueOf(jAvailable.getValue()));
+           
+        // double duration, String type, String difficulty, String area, int minPrice, 
+        // int maxPrice, String language, boolean pickup, boolean handicap,
+        // String date, int availableTickets
+        results = newSearch.getResults(duration, type, difficulty, area, minPrice, 
+                maxPrice, language, pickup, handicap, date, availableSeats);
+        
         while (!results.isEmpty()) {
-            //Results.new(); 
             Tours haha = results.get(results.size()-1);
+                        
             Object[] input = {haha.getId(), haha.getDate(), haha.getType(), 
                 haha.getDuration(), haha.getDifficulty(), haha.getPrice(), 
                 haha.getSeatsTotal(), haha.getSeatsAvailable(), 
-                haha.getLanguage(),
+                haha.getLanguage(), //hotelPickup, handicapAccess};
                 haha.getPickup(), haha.getHandicap()};
             
             tableModel.addRow(input);
@@ -292,6 +375,10 @@ public class Daytours extends javax.swing.JFrame {
     private void jDateMonthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jDateMonthActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jDateMonthActionPerformed
+
+    private void jPickupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPickupActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPickupActionPerformed
 
    
     /**
@@ -322,10 +409,11 @@ public class Daytours extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         
-        
-        
-        //double duration, String type, String difficulty, String area, String language, String date){
-        results2 = newSearch2.getResults(0.0 , "", "medium", "", "", "");
+        /*
+        // double duration, String type, String difficulty, String area, int minPrice, 
+        // int maxPrice, String language, boolean pickup, boolean handicap,
+        // String date, int availableTickets
+        results2 = newSearch2.getResults(0.0 , "", "medium", "", 0, 0, "", false, false, "", 0);
         int counter = results2.size()-1;
         while (!results2.isEmpty()) {
             Tours haha = results2.get(counter);
@@ -333,12 +421,7 @@ public class Daytours extends javax.swing.JFrame {
             results2.remove(counter);
             counter--;
         }
-        
-        //results = newSearch.getResults(3.0 , "sightseeing", "", "", "", "");
-        //results = newSearch.getResults(0.0 , "", "", "", "", "31.11.2016");
-        //results = newSearch.getResults(100.0 , "", "hard", "", "", "");
-        
-        
+        */
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -351,6 +434,8 @@ public class Daytours extends javax.swing.JFrame {
     private javax.swing.JTable Results;
     private javax.swing.JComboBox jArea;
     private javax.swing.JLabel jAreaLabel;
+    private javax.swing.JSpinner jAvailable;
+    private javax.swing.JLabel jAvailableLabel;
     private javax.swing.JComboBox jDateDay;
     private javax.swing.JLabel jDateLabel;
     private javax.swing.JComboBox jDateMonth;
@@ -359,6 +444,14 @@ public class Daytours extends javax.swing.JFrame {
     private javax.swing.JLabel jDifficultyLabel;
     private javax.swing.JComboBox jDuration;
     private javax.swing.JLabel jDurationLabel;
+    private javax.swing.JCheckBox jHandicap;
+    private javax.swing.JComboBox jLanguage;
+    private javax.swing.JLabel jLanguageLabel;
+    private javax.swing.JSpinner jMaxPrice;
+    private javax.swing.JLabel jMaxPriceLabel;
+    private javax.swing.JSpinner jMinPrice;
+    private javax.swing.JLabel jMinPriceLabel;
+    private javax.swing.JCheckBox jPickup;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton jSearch;

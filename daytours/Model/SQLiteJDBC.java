@@ -1,3 +1,5 @@
+package daytours.Model;
+
 //package database_console;
 
 import java.sql.Connection;
@@ -24,7 +26,8 @@ public class SQLiteJDBC {
             
             //Connection con = DriverManager.getConnection(host, username, password);
             Class.forName("org.sqlite.JDBC");
-            Connection con = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\EiríkurAtli\\Documents\\NetBeansProjects\\daytours6D\\daytours.db");
+            Connection con = DriverManager.getConnection("jdbc:sqlite:daytours.db");
+            //Connection con = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\EiríkurAtli\\Documents\\NetBeansProjects\\daytours6D\\daytours.db");
             Statement stmt = con.createStatement();
             
             String SQL = searchString;

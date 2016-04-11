@@ -1,3 +1,5 @@
+package daytours.Model;
+
 
 public class Tours {
 	private int id;

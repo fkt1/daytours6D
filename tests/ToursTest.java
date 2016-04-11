@@ -1,3 +1,6 @@
+package tests;
+
+import daytours.Model.Tours;
 import org.junit.Before;
 import org.junit.Test;
 

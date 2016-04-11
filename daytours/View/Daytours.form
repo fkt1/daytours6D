@@ -46,48 +46,71 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jScrollPane2" max="32767" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jTegund" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTegundLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jArea" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jAreaLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jDifficulty" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jDifficultyLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jDurationLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jDuration" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jDateLabel" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jDateDay" min="-2" pref="94" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jDateMonth" min="-2" pref="88" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jDateYear" pref="122" max="32767" attributes="0"/>
-                              <EmptySpace min="-2" pref="296" max="-2" attributes="0"/>
+                          <Component id="jDateLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jTegund" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jTegundLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jArea" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jAreaLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jDifficulty" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jDifficultyLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jAvailableLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jDuration" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jDurationLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jMinPriceLabel" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jMinPrice" min="-2" pref="110" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jMaxPriceLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jMaxPrice" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="jLanguage" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLanguageLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jDateDay" min="-2" pref="94" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jDateMonth" min="-2" pref="88" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jDateYear" min="-2" pref="103" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jSearch" min="-2" pref="418" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Component id="jAvailable" min="-2" pref="150" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="jHandicap" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                                          <Component id="jPickup" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
                           </Group>
                       </Group>
-                      <Component id="jSearch" min="-2" pref="418" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="38" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -110,34 +133,47 @@
                       <Component id="jArea" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
-                      <Component id="jDifficultyLabel" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jDurationLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jMinPriceLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jDifficultyLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jDifficulty" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jDuration" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jMinPrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jDifficulty" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <Group type="102" attributes="0">
-                      <Component id="jDurationLabel" min="-2" max="-2" attributes="0"/>
+                      <Component id="jMaxPriceLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jDuration" min="-2" max="-2" attributes="0"/>
+                      <Component id="jMaxPrice" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Component id="jLanguageLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLanguage" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="jDateLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jDateDay" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jDateMonth" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jDateYear" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                      <Component id="jScrollPane2" pref="543" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="jSearch" min="-2" pref="53" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  </Group>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jDateLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jAvailableLabel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jDateDay" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jDateMonth" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jDateYear" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jHandicap" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jPickup" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jAvailable" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="54" max="32767" attributes="0"/>
+              <Component id="jSearch" min="-2" pref="53" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+              <Component id="jScrollPane2" min="-2" pref="470" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -405,6 +441,75 @@
             <StringItem index="1" value="2016"/>
             <StringItem index="2" value="2017"/>
           </StringArray>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jMinPriceLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Min Price"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JSpinner" name="jMinPrice">
+      <Properties>
+        <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+          <SpinnerModel initial="0" maximum="100000" minimum="0" numberType="java.lang.Integer" stepSize="5000" type="number"/>
+        </Property>
+        <Property name="opaque" type="boolean" value="false"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jMaxPriceLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Max Price"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JSpinner" name="jMaxPrice">
+      <Properties>
+        <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+          <SpinnerModel initial="0" maximum="100000" minimum="0" numberType="java.lang.Integer" stepSize="5000" type="number"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="jLanguage">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="6">
+            <StringItem index="0" value="Ekkert vali&#xf0;"/>
+            <StringItem index="1" value="danish"/>
+            <StringItem index="2" value="english"/>
+            <StringItem index="3" value="german"/>
+            <StringItem index="4" value="icelandic"/>
+            <StringItem index="5" value="spanish"/>
+          </StringArray>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLanguageLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Language"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="jPickup">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Hotel Pickup"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jPickupActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="jHandicap">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Disabled friendly"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jAvailableLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Available Seats"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JSpinner" name="jAvailable">
+      <Properties>
+        <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+          <SpinnerModel initial="0" maximum="100" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
         </Property>
       </Properties>
     </Component>

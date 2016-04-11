@@ -1,3 +1,5 @@
+package tests;
+
 /**
  * Created by thorunn on 03/04/16.
  */
