@@ -1,4 +1,7 @@
 import java.util.ArrayList;
+import java.util.Arrays;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 //import src.Search;
 
 /*
@@ -12,12 +15,25 @@ import java.util.ArrayList;
  * @author Eiríkur Atli Briem, Háskóli Íslands, eab12@hi.is
  */
 public class Daytours extends javax.swing.JFrame {
-
+    
+    
+    ArrayList<Tours> results = new ArrayList<Tours>();
+    static ArrayList<Tours> results2 = new ArrayList<Tours>();
+    Search newSearch = new Search();
+    static Search newSearch2 = new Search();
+    DefaultTableModel tableModel;
+    //DefaultTableModel tableModel = new javax.swing.table.DefaultTableModel();
+    
+    
     /**
      * Creates new form Daytours
      */
     public Daytours() {
+        
+        //Results = new JTable(tableModel);
         initComponents();
+         tableModel = (DefaultTableModel) Results.getModel();
+        
     }
 
     /**
@@ -31,11 +47,21 @@ public class Daytours extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        jSearch = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         Results = new javax.swing.JTable();
-        jComboBox1 = new javax.swing.JComboBox();
-        jLabel1 = new javax.swing.JLabel();
+        jTegund = new javax.swing.JComboBox();
+        jTegundLabel = new javax.swing.JLabel();
+        jArea = new javax.swing.JComboBox();
+        jAreaLabel = new javax.swing.JLabel();
+        jDifficulty = new javax.swing.JComboBox();
+        jDifficultyLabel = new javax.swing.JLabel();
+        jDateDay = new javax.swing.JComboBox();
+        jDateLabel = new javax.swing.JLabel();
+        jDurationLabel = new javax.swing.JLabel();
+        jDuration = new javax.swing.JComboBox();
+        jDateMonth = new javax.swing.JComboBox();
+        jDateYear = new javax.swing.JComboBox();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -52,10 +78,10 @@ public class Daytours extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("Leita");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jSearch.setText("Search");
+        jSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jSearchActionPerformed(evt);
             }
         });
 
@@ -84,58 +110,190 @@ public class Daytours extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(Results);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        jTegund.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ekkert valið", "sightseeing", "hiking", "horseriding", "city walk", "adventure" }));
+        jTegund.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                jTegundActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("Tegund");
+        jTegundLabel.setText("Type");
+
+        jArea.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ekkert valið", "capital region", "west", "east", "north", "south" }));
+        jArea.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jAreaActionPerformed(evt);
+            }
+        });
+
+        jAreaLabel.setText("Area");
+
+        jDifficulty.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ekkert valið", "easy", "medium", "hard" }));
+
+        jDifficultyLabel.setText("Difficulty");
+
+        jDateDay.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "0", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+
+        jDateLabel.setText("Date");
+
+        jDurationLabel.setText("Duration");
+
+        jDuration.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ekkert valið", "1.0", "2.0", "3.0", "4.0", "5.0", "6.0", "7.0", "8.0", "9.0", "10.0", " " }));
+
+        jDateMonth.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "0", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
+        jDateMonth.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jDateMonthActionPerformed(evt);
+            }
+        });
+
+        jDateYear.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "0", "2016", "2017" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 874, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton1))
+                    .addComponent(jScrollPane2)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                            .addComponent(jTegund, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTegundLabel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jAreaLabel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jDifficulty, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jDifficultyLabel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jDurationLabel)
+                            .addComponent(jDuration, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jDateLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jDateDay, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jDateMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jDateYear, 0, 122, Short.MAX_VALUE)
+                                .addGap(296, 296, 296)))
+                        .addComponent(jSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(69, 69, 69)
-                .addComponent(jLabel1)
-                .addGap(3, 3, 3)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 248, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(142, 142, 142)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(60, 60, 60)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jTegundLabel)
+                        .addGap(3, 3, 3)
+                        .addComponent(jTegund, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jAreaLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jDifficultyLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jDifficulty, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jDurationLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jDuration, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(60, 60, 60)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jDateLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jDateDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jDateMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jDateYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(41, 41, 41)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 543, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void jSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSearchActionPerformed
+        tableModel.setRowCount(0);
+        
+        String area;
+        if(jArea.getSelectedIndex() == 0) area = "";
+        else area = String.valueOf(jArea.getSelectedItem());
+        
+        String difficulty;
+        if(jDifficulty.getSelectedIndex() == 0) difficulty = "";
+        else difficulty = String.valueOf(jDifficulty.getSelectedItem());
+        
+        double duration;
+        if (jDuration.getSelectedIndex() == 0) duration = 0.0;
+        else duration = Double.parseDouble(String.valueOf(jDuration.getSelectedItem()));
+        
+        String type;
+        if (jTegund.getSelectedIndex() == 0) type = "";
+        else type = String.valueOf(jTegund.getSelectedItem());
+        
+        String date;
+        int day = Integer.parseInt(String.valueOf(jDateDay.getSelectedItem()));
+        int month = Integer.parseInt(String.valueOf(jDateMonth.getSelectedItem()));
+        int year = Integer.parseInt(String.valueOf(jDateYear.getSelectedItem()));
+        if (day == 0 || month == 0 || year == 0) date = "";
+        else date = String.valueOf(jDateDay.getSelectedItem())+"."+
+                String.valueOf(jDateMonth.getSelectedItem())+"."+
+                String.valueOf(jDateYear.getSelectedItem());
+        
+                
+        // double duration, String type, String difficulty, String area, String language, String date
+        results = newSearch.getResults(duration, type, difficulty, area, "", date);
+        
+        int counter = 1;
+        while (!results.isEmpty()) {
+            //Results.new(); 
+            Tours haha = results.get(results.size()-1);
+            Object[] input = {haha.getId(), haha.getDate(), haha.getType(), 
+                haha.getDuration(), haha.getDifficulty(), haha.getPrice(), 
+                haha.getSeatsTotal(), haha.getSeatsAvailable(), 
+                haha.getLanguage(),
+                haha.getPickup(), haha.getHandicap()};
+            
+            tableModel.addRow(input);
+            results.remove(results.size()-1);
+            
+        }
+        
+// TODO add your handling code here:
+    }//GEN-LAST:event_jSearchActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    private void jTegundActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTegundActionPerformed
+        
+// TODO add your handling code here:
+    }//GEN-LAST:event_jTegundActionPerformed
 
+    private void jAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jAreaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jAreaActionPerformed
+
+    private void jDateMonthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jDateMonthActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jDateMonthActionPerformed
+
+   
     /**
      * @param args the command line arguments
      */
@@ -164,31 +322,48 @@ public class Daytours extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         
-        ArrayList<Tours> results = new ArrayList<Tours>();
-        Search newSearch = new Search();
         
-        // double duration, String type, String difficulty, String area, String language, String date){
-        results = newSearch.getResults(5.5 , "", "", "", "", "");
-        results = newSearch.getResults(3.0 , "sightseeing", "", "", "", "");
-        results = newSearch.getResults(0.0 , "", "", "", "", "31.11.2016");
-        results = newSearch.getResults(0.0 , "", "hard", "", "", "");
+        
+        //double duration, String type, String difficulty, String area, String language, String date){
+        results2 = newSearch2.getResults(0.0 , "", "medium", "", "", "");
+        int counter = results2.size()-1;
+        while (!results2.isEmpty()) {
+            Tours haha = results2.get(counter);
+            System.out.println( haha.getId() + " " + haha.getArea() + " " + haha.getPrice() + " " + haha.getLanguage() );
+            results2.remove(counter);
+            counter--;
+        }
+        
+        //results = newSearch.getResults(3.0 , "sightseeing", "", "", "", "");
+        //results = newSearch.getResults(0.0 , "", "", "", "", "31.11.2016");
+        //results = newSearch.getResults(100.0 , "", "hard", "", "", "");
         
         
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Daytours().setVisible(false);
+                new Daytours().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable Results;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox jComboBox1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JComboBox jArea;
+    private javax.swing.JLabel jAreaLabel;
+    private javax.swing.JComboBox jDateDay;
+    private javax.swing.JLabel jDateLabel;
+    private javax.swing.JComboBox jDateMonth;
+    private javax.swing.JComboBox jDateYear;
+    private javax.swing.JComboBox jDifficulty;
+    private javax.swing.JLabel jDifficultyLabel;
+    private javax.swing.JComboBox jDuration;
+    private javax.swing.JLabel jDurationLabel;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JButton jSearch;
     private javax.swing.JTable jTable1;
+    private javax.swing.JComboBox jTegund;
+    private javax.swing.JLabel jTegundLabel;
     // End of variables declaration//GEN-END:variables
 }

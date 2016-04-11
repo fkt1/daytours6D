@@ -16,7 +16,7 @@ public class Search
 
     private SQLiteJDBC database;
     
-    private Tours data = new Tours();
+    //private Tours data = new Tours();
 
     public Search(SQLiteJDBC database) {
         this.database = database;
@@ -40,7 +40,7 @@ public class Search
         ResultSet db = database.getData(searchString);
         try {
             while (db.next()) {
-                
+                Tours data = new Tours();
 
                 data.setId(db.getInt("id"));
                 data.setDuration(db.getDouble("duration"));
@@ -53,18 +53,19 @@ public class Search
                 data.setHandicap(db.getBoolean("handicap"));
                 data.setDate(db.getString("date"));
                 data.setPrice(db.getInt("price"));
+                data.setLanguage(db.getString("language"));
 
-                Array lang = db.getArray("language");
+                //Array lang = db.getArray("language");
                 //String [] language1 = (String[])lang.getArray();
                 //String[] language2 = new String[language1.length];
                 //for (int i = 0; i < language1.length; i++) {
                 //    language2[i] = language[language1[i]];
                 //}
-                data.setLanguage((String[])lang.getArray());
+                //data.setLanguage((String[])lang.getArray());
 
                 tour.add(data);
 
-                System.out.println( data.getArea() + " " + data.getPrice() + " " + Arrays.toString(data.getLanguage()) );
+                
             }
             System.out.println("Thetta tokst");
         } catch (Exception ex) {
@@ -80,8 +81,9 @@ public class Search
 
             ResultSet db = database.getData("SELECT * FROM Tour");
             try {
+                Tours data = new Tours();
                 while (db.next()) {
-                    Tours data = new Tours();
+                    
 
                     data.setId(db.getInt("id"));
                     data.setDuration(db.getDouble("duration"));
@@ -104,8 +106,10 @@ public class Search
                     data.setLanguage((String[])lang.getArray());
                     
                     tour.add(data);
-                        
-                    System.out.println( data.getArea() + " " + data.getPrice() + " " + Arrays.toString(data.getLanguage()) );
+                    db.next();
+                    
+                    System.out.println("Hæ er ekki í lagi?");
+                    //System.out.println( data.getArea() + " " + data.getPrice() + " " + Arrays.toString(data.getLanguage()) );
                 }
                 System.out.println("Thetta tokst");
             } catch (Exception ex) {
