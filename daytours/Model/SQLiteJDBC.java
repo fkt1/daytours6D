@@ -18,21 +18,13 @@ public class SQLiteJDBC {
         ResultSet rs; 
         
         try {
-            //String host = "C:/Users/EiríkurAtli/Documents/NetBeansProjects/daytours6D/daytours_database";
-            //String host = "jdbc:sqlite:daytours.db";
-            //String host = "jdbc:postgresql://localhost:5432/daytours_database";
-            String username = "postgres";
-            String password = "nufc90";
             
-            //Connection con = DriverManager.getConnection(host, username, password);
             Class.forName("org.sqlite.JDBC");
             Connection con = DriverManager.getConnection("jdbc:sqlite:daytours.db");
-            //Connection con = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\EiríkurAtli\\Documents\\NetBeansProjects\\daytours6D\\daytours.db");
+            
             Statement stmt = con.createStatement();
             
-            String SQL = searchString;
-            
-            rs = stmt.executeQuery( SQL );
+            rs = stmt.executeQuery( searchString );
         }
         
         catch (SQLException err) {
@@ -48,22 +40,18 @@ public class SQLiteJDBC {
     
     public void changeData(String changeString) {
         try {
-            //String host = "C:/Users/EiríkurAtli/Documents/NetBeansProjects/daytours6D/daytours_database";
-            String host = "jdbc:postgresql://localhost:5432/daytours_database";
-            String username = "postgres";
-            String password = "nufc90";
+            Class.forName("org.sqlite.JDBC");
+            Connection con = DriverManager.getConnection("jdbc:sqlite:daytours.db");
             
-            Connection con = DriverManager.getConnection(host, username, password);
             Statement stmt = con.createStatement();
             
-            
-            String SQL = changeString;
-            
-            stmt.executeQuery( SQL );
+            stmt.executeUpdate( changeString );
         }
         
         catch (SQLException err) {
             System.out.println(err.getMessage());
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(SQLiteJDBC.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }

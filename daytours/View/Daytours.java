@@ -1,5 +1,6 @@
 package daytours.View;
 
+import daytours.Controller.Booking;
 import daytours.Model.Tours;
 import daytours.Controller.Search;
 import java.util.ArrayList;
@@ -23,6 +24,7 @@ public class Daytours extends javax.swing.JFrame {
     ArrayList<Tours> results = new ArrayList<Tours>();
     static ArrayList<Tours> results2 = new ArrayList<Tours>();
     Search newSearch = new Search();
+    static Booking newBooking = new Booking();
     static Search newSearch2 = new Search();
     DefaultTableModel tableModel;
     //DefaultTableModel tableModel = new javax.swing.table.DefaultTableModel();
@@ -34,7 +36,7 @@ public class Daytours extends javax.swing.JFrame {
         
         //Results = new JTable(tableModel);
         initComponents();
-         tableModel = (DefaultTableModel) Results.getModel();
+        tableModel = (DefaultTableModel) Results.getModel();
         
     }
 
@@ -90,6 +92,7 @@ public class Daytours extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jSearch.setFont(new java.awt.Font("Tahoma", 0, 25)); // NOI18N
         jSearch.setText("Search");
         jSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,6 +100,7 @@ public class Daytours extends javax.swing.JFrame {
             }
         });
 
+        Results.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         Results.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -120,8 +124,10 @@ public class Daytours extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        Results.setRowHeight(25);
         jScrollPane2.setViewportView(Results);
 
+        jTegund.setFont(new java.awt.Font("Tahoma", 0, 25)); // NOI18N
         jTegund.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ekkert valið", "sightseeing", "hiking", "horseriding", "city walk", "adventure" }));
         jTegund.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,8 +135,10 @@ public class Daytours extends javax.swing.JFrame {
             }
         });
 
+        jTegundLabel.setFont(new java.awt.Font("Tahoma", 0, 25)); // NOI18N
         jTegundLabel.setText("Type");
 
+        jArea.setFont(new java.awt.Font("Tahoma", 0, 25)); // NOI18N
         jArea.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ekkert valið", "capital region", "west", "east", "north", "south" }));
         jArea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -138,20 +146,28 @@ public class Daytours extends javax.swing.JFrame {
             }
         });
 
+        jAreaLabel.setFont(new java.awt.Font("Tahoma", 0, 25)); // NOI18N
         jAreaLabel.setText("Area");
 
+        jDifficulty.setFont(new java.awt.Font("Tahoma", 0, 25)); // NOI18N
         jDifficulty.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ekkert valið", "easy", "medium", "hard" }));
 
+        jDifficultyLabel.setFont(new java.awt.Font("Tahoma", 0, 25)); // NOI18N
         jDifficultyLabel.setText("Difficulty");
 
+        jDateDay.setFont(new java.awt.Font("Tahoma", 0, 25)); // NOI18N
         jDateDay.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "0", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
 
+        jDateLabel.setFont(new java.awt.Font("Tahoma", 0, 25)); // NOI18N
         jDateLabel.setText("Date");
 
+        jDurationLabel.setFont(new java.awt.Font("Tahoma", 0, 25)); // NOI18N
         jDurationLabel.setText("Duration");
 
+        jDuration.setFont(new java.awt.Font("Tahoma", 0, 25)); // NOI18N
         jDuration.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ekkert valið", "1.0", "2.0", "3.0", "4.0", "5.0", "6.0", "7.0", "8.0", "9.0", "10.0", " " }));
 
+        jDateMonth.setFont(new java.awt.Font("Tahoma", 0, 25)); // NOI18N
         jDateMonth.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "0", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
         jDateMonth.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -159,21 +175,29 @@ public class Daytours extends javax.swing.JFrame {
             }
         });
 
+        jDateYear.setFont(new java.awt.Font("Tahoma", 0, 25)); // NOI18N
         jDateYear.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "0", "2016", "2017" }));
 
+        jMinPriceLabel.setFont(new java.awt.Font("Tahoma", 0, 25)); // NOI18N
         jMinPriceLabel.setText("Min Price");
 
+        jMinPrice.setFont(new java.awt.Font("Tahoma", 0, 25)); // NOI18N
         jMinPrice.setModel(new javax.swing.SpinnerNumberModel(0, 0, 100000, 5000));
         jMinPrice.setOpaque(false);
 
+        jMaxPriceLabel.setFont(new java.awt.Font("Tahoma", 0, 25)); // NOI18N
         jMaxPriceLabel.setText("Max Price");
 
+        jMaxPrice.setFont(new java.awt.Font("Tahoma", 0, 25)); // NOI18N
         jMaxPrice.setModel(new javax.swing.SpinnerNumberModel(0, 0, 100000, 5000));
 
+        jLanguage.setFont(new java.awt.Font("Tahoma", 0, 25)); // NOI18N
         jLanguage.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ekkert valið", "danish", "english", "german", "icelandic", "spanish" }));
 
+        jLanguageLabel.setFont(new java.awt.Font("Tahoma", 0, 25)); // NOI18N
         jLanguageLabel.setText("Language");
 
+        jPickup.setFont(new java.awt.Font("Tahoma", 0, 25)); // NOI18N
         jPickup.setText("Hotel Pickup");
         jPickup.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -181,10 +205,13 @@ public class Daytours extends javax.swing.JFrame {
             }
         });
 
+        jHandicap.setFont(new java.awt.Font("Tahoma", 0, 25)); // NOI18N
         jHandicap.setText("Disabled friendly");
 
+        jAvailableLabel.setFont(new java.awt.Font("Tahoma", 0, 25)); // NOI18N
         jAvailableLabel.setText("Available Seats");
 
+        jAvailable.setFont(new java.awt.Font("Tahoma", 0, 25)); // NOI18N
         jAvailable.setModel(new javax.swing.SpinnerNumberModel(0, 0, 100, 1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -211,7 +238,8 @@ public class Daytours extends javax.swing.JFrame {
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jDifficulty, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jDifficultyLabel)
-                                        .addComponent(jAvailableLabel))
+                                        .addComponent(jAvailableLabel)
+                                        .addComponent(jAvailable, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jDuration, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -236,13 +264,12 @@ public class Daytours extends javax.swing.JFrame {
                                     .addGap(30, 30, 30)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jAvailable, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                            .addGap(0, 0, Short.MAX_VALUE)
                                             .addComponent(jHandicap)
                                             .addGap(51, 51, 51)
                                             .addComponent(jPickup))))))
-                        .addGap(0, 38, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -288,7 +315,7 @@ public class Daytours extends javax.swing.JFrame {
                     .addComponent(jHandicap)
                     .addComponent(jPickup)
                     .addComponent(jAvailable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
                 .addComponent(jSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(53, 53, 53)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -345,6 +372,8 @@ public class Daytours extends javax.swing.JFrame {
         // String date, int availableTickets
         results = newSearch.getResults(duration, type, difficulty, area, minPrice, 
                 maxPrice, language, pickup, handicap, date, availableSeats);
+        
+        System.out.println(results.size());
         
         while (!results.isEmpty()) {
             Tours haha = results.get(results.size()-1);
@@ -408,6 +437,8 @@ public class Daytours extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
+        
+        //newBooking.makeBooking(17, 20);
         
         /*
         // double duration, String type, String difficulty, String area, int minPrice, 

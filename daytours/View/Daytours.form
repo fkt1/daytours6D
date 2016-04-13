@@ -69,6 +69,7 @@
                                       <Component id="jDifficulty" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jDifficultyLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jAvailableLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jAvailable" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -99,9 +100,8 @@
                                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jSearch" min="-2" pref="418" max="-2" attributes="0"/>
-                                      <Group type="102" attributes="0">
-                                          <Component id="jAvailable" min="-2" pref="150" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                           <Component id="jHandicap" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                                           <Component id="jPickup" min="-2" max="-2" attributes="0"/>
@@ -110,7 +110,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="0" pref="38" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -170,7 +170,7 @@
                   <Component id="jPickup" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jAvailable" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="54" max="32767" attributes="0"/>
+              <EmptySpace pref="82" max="32767" attributes="0"/>
               <Component id="jSearch" min="-2" pref="53" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
               <Component id="jScrollPane2" min="-2" pref="470" max="-2" attributes="0"/>
@@ -182,6 +182,9 @@
   <SubComponents>
     <Component class="javax.swing.JButton" name="jSearch">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="25" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Search"/>
       </Properties>
       <Events>
@@ -197,6 +200,9 @@
       <SubComponents>
         <Component class="javax.swing.JTable" name="Results">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="24" style="0"/>
+            </Property>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="11" rowCount="0">
                 <Column editable="false" title="ID" type="java.lang.Integer"/>
@@ -271,6 +277,9 @@
                 </Column>
               </TableColumnModel>
             </Property>
+            <Property name="rowHeight" type="int" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="25" type="code"/>
+            </Property>
             <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
               <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
             </Property>
@@ -280,6 +289,9 @@
     </Container>
     <Component class="javax.swing.JComboBox" name="jTegund">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="25" style="0"/>
+        </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="6">
             <StringItem index="0" value="ekkert vali&#xf0;"/>
@@ -297,11 +309,17 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jTegundLabel">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="25" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Type"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="jArea">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="25" style="0"/>
+        </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="6">
             <StringItem index="0" value="ekkert vali&#xf0;"/>
@@ -319,11 +337,17 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jAreaLabel">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="25" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Area"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="jDifficulty">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="25" style="0"/>
+        </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="4">
             <StringItem index="0" value="ekkert vali&#xf0;"/>
@@ -336,11 +360,17 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jDifficultyLabel">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="25" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Difficulty"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="jDateDay">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="25" style="0"/>
+        </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="32">
             <StringItem index="0" value="0"/>
@@ -381,16 +411,25 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jDateLabel">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="25" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Date"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jDurationLabel">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="25" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Duration"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="jDuration">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="25" style="0"/>
+        </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="12">
             <StringItem index="0" value="Ekkert vali&#xf0;"/>
@@ -411,6 +450,9 @@
     </Component>
     <Component class="javax.swing.JComboBox" name="jDateMonth">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="25" style="0"/>
+        </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="13">
             <StringItem index="0" value="0"/>
@@ -435,6 +477,9 @@
     </Component>
     <Component class="javax.swing.JComboBox" name="jDateYear">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="25" style="0"/>
+        </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="3">
             <StringItem index="0" value="0"/>
@@ -446,11 +491,17 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jMinPriceLabel">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="25" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Min Price"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JSpinner" name="jMinPrice">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="25" style="0"/>
+        </Property>
         <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
           <SpinnerModel initial="0" maximum="100000" minimum="0" numberType="java.lang.Integer" stepSize="5000" type="number"/>
         </Property>
@@ -459,11 +510,17 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jMaxPriceLabel">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="25" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Max Price"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JSpinner" name="jMaxPrice">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="25" style="0"/>
+        </Property>
         <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
           <SpinnerModel initial="0" maximum="100000" minimum="0" numberType="java.lang.Integer" stepSize="5000" type="number"/>
         </Property>
@@ -471,6 +528,9 @@
     </Component>
     <Component class="javax.swing.JComboBox" name="jLanguage">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="25" style="0"/>
+        </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="6">
             <StringItem index="0" value="Ekkert vali&#xf0;"/>
@@ -485,11 +545,17 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLanguageLabel">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="25" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Language"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JCheckBox" name="jPickup">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="25" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Hotel Pickup"/>
       </Properties>
       <Events>
@@ -498,16 +564,25 @@
     </Component>
     <Component class="javax.swing.JCheckBox" name="jHandicap">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="25" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Disabled friendly"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jAvailableLabel">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="25" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Available Seats"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JSpinner" name="jAvailable">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="25" style="0"/>
+        </Property>
         <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
           <SpinnerModel initial="0" maximum="100" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
         </Property>
