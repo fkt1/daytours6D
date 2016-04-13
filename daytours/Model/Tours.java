@@ -10,7 +10,7 @@ public class Tours {
 	private int price;
 	private int seatsTotal;
 	private int seatsAvailable;
-	private String language;
+	private String[] language;
 	private boolean pickup;
 	private boolean handicap;
 	private String date; // form of date = DD.MM.YYYY
@@ -39,7 +39,7 @@ public class Tours {
 		return handicap;
 	}
 	
-	public String getLanguage() {
+	public String[] getLanguage() {
 		return language;
 	}
 	
@@ -86,7 +86,7 @@ public class Tours {
 		handicap = isHandy;
 	}
 	
-	public void setLanguage(String lang) {
+	public void setLanguage(String[] lang) {
 		language = lang;
 	}
 	

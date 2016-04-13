@@ -128,7 +128,7 @@ public class Daytours extends javax.swing.JFrame {
         jScrollPane2.setViewportView(Results);
 
         jTegund.setFont(new java.awt.Font("Tahoma", 0, 25)); // NOI18N
-        jTegund.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ekkert valið", "sightseeing", "hiking", "horseriding", "city walk", "adventure" }));
+        jTegund.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ekkert valið", "Sightseeing", "Hiking", "Horseriding", "City walk", "Adventure" }));
         jTegund.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTegundActionPerformed(evt);
@@ -139,7 +139,7 @@ public class Daytours extends javax.swing.JFrame {
         jTegundLabel.setText("Type");
 
         jArea.setFont(new java.awt.Font("Tahoma", 0, 25)); // NOI18N
-        jArea.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ekkert valið", "capital region", "west", "east", "north", "south" }));
+        jArea.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ekkert valið", "Capital region", "West", "East", "North", "South" }));
         jArea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jAreaActionPerformed(evt);
@@ -150,7 +150,7 @@ public class Daytours extends javax.swing.JFrame {
         jAreaLabel.setText("Area");
 
         jDifficulty.setFont(new java.awt.Font("Tahoma", 0, 25)); // NOI18N
-        jDifficulty.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ekkert valið", "easy", "medium", "hard" }));
+        jDifficulty.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ekkert valið", "Easy", "Medium", "Hard" }));
 
         jDifficultyLabel.setFont(new java.awt.Font("Tahoma", 0, 25)); // NOI18N
         jDifficultyLabel.setText("Difficulty");
@@ -192,7 +192,7 @@ public class Daytours extends javax.swing.JFrame {
         jMaxPrice.setModel(new javax.swing.SpinnerNumberModel(0, 0, 100000, 5000));
 
         jLanguage.setFont(new java.awt.Font("Tahoma", 0, 25)); // NOI18N
-        jLanguage.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ekkert valið", "danish", "english", "german", "icelandic", "spanish" }));
+        jLanguage.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ekkert valið", "Danish", "English", "German", "Icelandic", "Spanish" }));
 
         jLanguageLabel.setFont(new java.awt.Font("Tahoma", 0, 25)); // NOI18N
         jLanguageLabel.setText("Language");
@@ -381,7 +381,7 @@ public class Daytours extends javax.swing.JFrame {
             Object[] input = {haha.getId(), haha.getDate(), haha.getType(), 
                 haha.getDuration(), haha.getDifficulty(), haha.getPrice(), 
                 haha.getSeatsTotal(), haha.getSeatsAvailable(), 
-                haha.getLanguage(), //hotelPickup, handicapAccess};
+                Arrays.toString(haha.getLanguage()), //hotelPickup, handicapAccess};
                 haha.getPickup(), haha.getHandicap()};
             
             tableModel.addRow(input);

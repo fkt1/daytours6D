@@ -61,16 +61,17 @@ public class Search
                 data.setHandicap(Boolean.parseBoolean(db.getString("handicap")));
                 data.setDate(db.getString("date"));
                 data.setPrice(db.getInt("price"));
-                data.setLanguage(db.getString("language"));
+                //data.setLanguage(db.getString("language"));
 
-                //Array lang = db.getArray("language");
+                String languageString = db.getString("language");
                 //String [] language1 = (String[])lang.getArray();
                 //String[] language2 = new String[language1.length];
                 //for (int i = 0; i < language1.length; i++) {
                 //    language2[i] = language[language1[i]];
                 //}
                 //data.setLanguage((String[])lang.getArray());
-
+                String[] languageArray = languageString.split(",");
+                data.setLanguage(languageArray);
                 tour.add(data);
 
                 
@@ -145,7 +146,7 @@ public class Search
             parts.add(" difficulty = " + "'" + difficulty + "'");
         }
         if (area.compareTo(("")) != 0) {
-            parts.add(" duration = " + "'" + area + "'");
+            parts.add(" area = " + "'" + area + "'");
         }
         if (minPrice > 0) {
             if (minPrice >= maxPrice) {

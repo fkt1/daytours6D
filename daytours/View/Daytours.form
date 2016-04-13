@@ -294,12 +294,12 @@
         </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="6">
-            <StringItem index="0" value="ekkert vali&#xf0;"/>
-            <StringItem index="1" value="sightseeing"/>
-            <StringItem index="2" value="hiking"/>
-            <StringItem index="3" value="horseriding"/>
-            <StringItem index="4" value="city walk"/>
-            <StringItem index="5" value="adventure"/>
+            <StringItem index="0" value="Ekkert vali&#xf0;"/>
+            <StringItem index="1" value="Sightseeing"/>
+            <StringItem index="2" value="Hiking"/>
+            <StringItem index="3" value="Horseriding"/>
+            <StringItem index="4" value="City walk"/>
+            <StringItem index="5" value="Adventure"/>
           </StringArray>
         </Property>
       </Properties>
@@ -322,12 +322,12 @@
         </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="6">
-            <StringItem index="0" value="ekkert vali&#xf0;"/>
-            <StringItem index="1" value="capital region"/>
-            <StringItem index="2" value="west"/>
-            <StringItem index="3" value="east"/>
-            <StringItem index="4" value="north"/>
-            <StringItem index="5" value="south"/>
+            <StringItem index="0" value="Ekkert vali&#xf0;"/>
+            <StringItem index="1" value="Capital region"/>
+            <StringItem index="2" value="West"/>
+            <StringItem index="3" value="East"/>
+            <StringItem index="4" value="North"/>
+            <StringItem index="5" value="South"/>
           </StringArray>
         </Property>
       </Properties>
@@ -350,10 +350,10 @@
         </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="4">
-            <StringItem index="0" value="ekkert vali&#xf0;"/>
-            <StringItem index="1" value="easy"/>
-            <StringItem index="2" value="medium"/>
-            <StringItem index="3" value="hard"/>
+            <StringItem index="0" value="Ekkert vali&#xf0;"/>
+            <StringItem index="1" value="Easy"/>
+            <StringItem index="2" value="Medium"/>
+            <StringItem index="3" value="Hard"/>
           </StringArray>
         </Property>
       </Properties>
@@ -534,11 +534,11 @@
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="6">
             <StringItem index="0" value="Ekkert vali&#xf0;"/>
-            <StringItem index="1" value="danish"/>
-            <StringItem index="2" value="english"/>
-            <StringItem index="3" value="german"/>
-            <StringItem index="4" value="icelandic"/>
-            <StringItem index="5" value="spanish"/>
+            <StringItem index="1" value="Danish"/>
+            <StringItem index="2" value="English"/>
+            <StringItem index="3" value="German"/>
+            <StringItem index="4" value="Icelandic"/>
+            <StringItem index="5" value="Spanish"/>
           </StringArray>
         </Property>
       </Properties>
