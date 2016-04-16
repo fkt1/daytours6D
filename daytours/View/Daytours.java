@@ -27,14 +27,12 @@ public class Daytours extends javax.swing.JFrame {
     static Booking newBooking = new Booking();
     static Search newSearch2 = new Search();
     DefaultTableModel tableModel;
-    //DefaultTableModel tableModel = new javax.swing.table.DefaultTableModel();
     
     /**
      * Creates new form Daytours
      */
     public Daytours() {
         
-        //Results = new JTable(tableModel);
         initComponents();
         tableModel = (DefaultTableModel) Results.getModel();
         
@@ -373,8 +371,6 @@ public class Daytours extends javax.swing.JFrame {
         results = newSearch.getResults(duration, type, difficulty, area, minPrice, 
                 maxPrice, language, pickup, handicap, date, availableSeats);
         
-        System.out.println(results.size());
-        
         while (!results.isEmpty()) {
             Tours haha = results.get(results.size()-1);
                         
@@ -438,21 +434,6 @@ public class Daytours extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         
-        //newBooking.makeBooking(17, 20);
-        
-        /*
-        // double duration, String type, String difficulty, String area, int minPrice, 
-        // int maxPrice, String language, boolean pickup, boolean handicap,
-        // String date, int availableTickets
-        results2 = newSearch2.getResults(0.0 , "", "medium", "", 0, 0, "", false, false, "", 0);
-        int counter = results2.size()-1;
-        while (!results2.isEmpty()) {
-            Tours haha = results2.get(counter);
-            System.out.println( haha.getId() + " " + haha.getArea() + " " + haha.getPrice() + " " + haha.getLanguage() );
-            results2.remove(counter);
-            counter--;
-        }
-        */
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
